@@ -1,21 +1,81 @@
-.boxMixed{
-    border: 2px solid black;
-    min-height: 150px;
-    background-color: bisque;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-
- img.item{
-    width: 110px;
-    height: 110px;
-    cursor: grab;
-}
-.item img:active{
-    cursor: grabbing;
+body {
+  background-color: rgba(24, 2, 78, 0.812);
 }
 
-.box{
-    box-sizing: border-box;
-    border: 1px solid black;
-    min-height: 300px;
+.container {
+  margin: auto;
+  width: 70%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+.container .big-img {
+  border: 5px solid black;
+  background-color: white;
+  height: 70vh;
+  position: relative;
+}
+.container .big-img .btn-right {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+}
+.container .big-img .btn-left {
+  position: absolute;
+  top: 50%;
+  left: -60px;
+}
+.container .big-img .main-img {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 20px black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.container .themes {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  gap: 20px;
+}
+.container .themes .theme {
+  cursor: pointer;
+  border: 1px solid black;
+  height: 100%;
+  width: 25%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px black;
+  transition: 0.5s;
+}
+.container .themes .theme:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 30px black;
+}
+.container .themes .active {
+  box-shadow: 0 2px 10px white !important;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=style.css.map */
