@@ -18,7 +18,8 @@ body {
 .container .big-img {
   border: 5px solid black;
   background-color: white;
-  height: 70vh;
+  border-radius: 20px;
+  height: 65vh;
   position: relative;
 }
 .container .big-img .btn-right {
@@ -45,6 +46,7 @@ body {
   gap: 20px;
 }
 .container .themes .theme {
+  transition: 0.5s;
   cursor: pointer;
   border: 1px solid black;
   height: 100%;
@@ -55,11 +57,11 @@ body {
   transition: 0.5s;
 }
 .container .themes .theme:hover {
-  transform: translateY(-3px);
   box-shadow: 0 7px 30px black;
 }
 .container .themes .active {
   box-shadow: 0 2px 10px white !important;
+  transform: translateY(-10px);
 }
 
 @-webkit-keyframes zoom {
