@@ -4,7 +4,9 @@
 }
 
 body {
-  background-color: rgba(24, 2, 78, 0.812);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.45)), url(/assets/images/pexels-adrien-olichon-2387793.jpg);
+  background-size: 100%;
+  min-height: 100vh;
 }
 
 .container {
@@ -22,15 +24,26 @@ body {
   height: 65vh;
   position: relative;
 }
-.container .big-img .btn-right {
+.container .big-img .my-btn {
   position: absolute;
-  top: 50%;
-  right: -60px;
+  height: 100%;
+  width: 10%;
+  top: 0%;
+  border: none;
+  background-color: rgba(50, 50, 50, 0.3);
+}
+.container .big-img .my-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.container .big-img .btn-right {
+  right: 0px;
+  font-size: 60px;
+  color: gray;
 }
 .container .big-img .btn-left {
-  position: absolute;
-  top: 50%;
-  left: -60px;
+  left: 0px;
+  font-size: 60px;
+  color: gray;
 }
 .container .big-img .main-img {
   width: 100%;
@@ -60,7 +73,7 @@ body {
   box-shadow: 0 7px 30px black;
 }
 .container .themes .active {
-  box-shadow: 0 2px 10px white !important;
+  box-shadow: 0 0px 10px blue !important;
   transform: translateY(-10px);
 }
 
