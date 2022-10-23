@@ -26,24 +26,26 @@ body {
 }
 .container .big-img .my-btn {
   position: absolute;
+  cursor: pointer;
   height: 100%;
   width: 10%;
   top: 0%;
   border: none;
-  background-color: rgba(50, 50, 50, 0.3);
+  transition: 0.5s;
+  -webkit-animation: s 3s linear infinite;
+          animation: s 3s linear infinite;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 60px;
 }
 .container .big-img .my-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .container .big-img .btn-right {
   right: 0px;
-  font-size: 60px;
-  color: gray;
 }
 .container .big-img .btn-left {
   left: 0px;
-  font-size: 60px;
-  color: gray;
 }
 .container .big-img .main-img {
   width: 100%;
@@ -51,6 +53,10 @@ body {
   box-shadow: 0 5px 20px black;
   border-radius: 10px;
   overflow: hidden;
+}
+.container .loader {
+  -webkit-animation: loads 3s linear infinite;
+          animation: loads 3s linear infinite;
 }
 .container .themes {
   width: 100%;

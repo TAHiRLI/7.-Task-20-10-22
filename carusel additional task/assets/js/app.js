@@ -1,5 +1,6 @@
 let mainDiv = document.querySelector('.main-img');
 let mainImg = document.querySelector('.main-img img');
+let loader = document.getElementById('load');
 
 let themes = document.querySelector('.themes');
 let hiddenThemes = document.querySelectorAll('.theme.d-none');
@@ -8,6 +9,7 @@ let themeDiv = document.querySelectorAll('.theme');
 let forwardBtn = document.querySelector('.btn-right');
 let backwardBtn = document.querySelector('.btn-left');
 
+let intervalDuration = 3000;
 let index = 0;
 let nthLink = 0;
 
@@ -46,7 +48,7 @@ for (let i = 0; i < images.length; i++) {
 
 let themeImgs = document.querySelectorAll('.theme img');
 
-// animation
+// animation appearance
 const imgScale = [
   { transform: ' scale(0.5)' },
   { transform: 'scale(1)' }
@@ -56,12 +58,45 @@ const imgTiming = {
   duration: 500,
   iterations: 1,
 };
+// animation loading
+const load = [
+  { width: ' 0' },
+  { width: '100%' }
+];
+
+const loadTiming3s = {
+  duration: 3000,
+  iterations: 1,
+};
+const loadTiming9s = {
+  duration: 9000,
+  iterations: 1,
+};
+loader.animate(load, loadTiming3s);
 
 
 // indicator click
 
 themeImgs.forEach(img => {
   img.addEventListener('click', (e) => {
+
+    clearInterval(interval);  // stop sliding
+
+    requestAnimationFrame(() => {
+      loader.animate(load, loadTiming9s);
+    });
+  
+    // after 6s start sliding
+  
+    setTimeout(() => {
+      interval = setInterval(() => {
+        loader.animate(load, loadTiming3s);
+        goForward();
+      }, intervalDuration);
+  
+    }, 6000);
+
+
     nthLink = img.getAttribute('index');
     mainImg.src = images[nthLink];
     mainDiv.animate(imgScale, imgTiming);
@@ -87,12 +122,9 @@ themeImgs.forEach(img => {
 
 themes.children[0].classList.add('active');
 
-
-
-
-forwardBtn.addEventListener('click', (e) => {
-
+function goForward() {
   // remove active class
+
   for (const child of themes.children) {
     child.classList.remove('active');
   }
@@ -113,12 +145,57 @@ forwardBtn.addEventListener('click', (e) => {
     themes.children[index].classList.add('active');
   }
   mainImg.src = images[nthLink];
+}
+
+forwardBtn.addEventListener('click', () => {
+
+  clearInterval(interval);  // stop sliding
+
+
+
+
+  loader.animate(load, loadTiming9s);
+
+
+ 
+
+  // after 6s start sliding
+  setTimeout(() => {
+    interval = setInterval(() => {
+      loader.animate(load, loadTiming3s);
+
+      goForward();
+
+    }, intervalDuration);
+  }, 6000);
+
+
+
+  goForward();
 
 });
 
 
 
 backwardBtn.addEventListener('click', (e) => {
+
+  clearInterval(interval);  // stop sliding
+
+  requestAnimationFrame(() => {
+    loader.animate(load, loadTiming9s);
+  });
+
+  // after 6s start sliding
+
+  setTimeout(() => {
+    interval = setInterval(() => {
+      loader.animate(load, loadTiming3s);
+      goForward();
+    }, intervalDuration);
+
+  }, 6000);
+
+  //cleaning active class
   for (const child of themes.children) {
     child.classList.remove('active');
   }
@@ -155,7 +232,7 @@ backwardBtn.addEventListener('click', (e) => {
 });
 
 
-// make 4 theme visible
+// make 4 theme divs visible
 function makeVisible() {
   for (let i = 0; i < themes.children.length; i++) {
     if (i < 4) {
@@ -172,3 +249,10 @@ function makeVisible() {
 
 makeVisible();
 
+var interval = setInterval(() => {
+  requestAnimationFrame(() => {
+
+    loader.animate(load, loadTiming3s);
+  });
+  goForward();
+}, intervalDuration);
