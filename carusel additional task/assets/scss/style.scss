@@ -7,7 +7,7 @@ body {
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0.45)
     ),
-    url(/assets/images/pexels-adrien-olichon-2387793.jpg);
+    url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   background-size: 100%;
   min-height: 100vh;
 }
@@ -60,6 +60,8 @@ body {
     }
   }
   .loader {
+    border-radius: 50%;
+    background-color: black !important;
     animation: loads 3s linear infinite;
   }
   .themes {
